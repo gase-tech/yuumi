@@ -15,12 +15,12 @@ export class ConfigService {
 
   constructor(private httpClient: HttpClient) { }
 
-  load(): Promise<any> {
+  load(): Promise<null> {
     return new Promise(resolve => {
       this.httpClient.get<Config>('http://localhost:3000/config')
         .subscribe(config => {
           this.config = config;
-          resolve(true);
+          resolve(null);
         });
     });
   }

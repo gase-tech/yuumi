@@ -11,7 +11,14 @@ export class CanModuleLoadGuard implements CanLoad {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(this.configService.config.modules);
-    return true;
+    if (route.path) {
+      const canLoad = this.configService.config.modules?.includes(route.path);
+      if (canLoad) {
+        return true;
+      }
+      alert('NOT AUTHORIZED');
+      return false;
+    }
+    return false;
   }
 }

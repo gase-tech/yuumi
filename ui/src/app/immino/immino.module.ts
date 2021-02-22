@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ]
 })
-export class ImminoModule { }
+export class ImminoModule {
+  constructor() {
+    console.log('ImminoModule');
+  }
+}
